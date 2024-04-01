@@ -39,169 +39,154 @@ P.S. You can delete this when you're done too. It's your config now :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  }
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = " "
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
 --
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
-require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
+require("lazy").setup({
+	-- NOTE: First, some plugins that don't require any configuration
 
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  'ludovicchabant/vim-gutentags',
+	"tpope/vim-fugitive",
+	"tpope/vim-rhubarb",
+	"ludovicchabant/vim-gutentags",
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-  'szw/vim-maximizer',
-  'sindrets/diffview.nvim',
-  {
-    'SuperBo/fugit2.nvim',
-    opts = {},
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'nvim-lua/plenary.nvim',
-      {
-        'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
-        dependencies = { 'stevearc/dressing.nvim' }
-      },
-    },
-    cmd = { 'Fugit2', 'Fugit2Graph' },
-    keys = {
-      { '<leader>F', mode = 'n', '<cmd>Fugit2<cr>' }
-    }
-  },
-  {
-    -- optional: for diffview.nvim integration
-    'sindrets/diffview.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    -- lazy, only load diffview by these commands
-    cmd = {
-      'DiffviewFileHistory', 'DiffviewOpen', 'DiffviewToggleFiles', 'DiffviewFocusFiles', 'DiffviewRefresh'
-    }
-  },
+	-- Detect tabstop and shiftwidth automatically
+	"tpope/vim-sleuth",
+	"szw/vim-maximizer",
+	"sindrets/diffview.nvim",
 
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'neovim/nvim-lspconfig',
-  'hrsh7th/cmp-nvim-lsp',
-  'MunifTanjim/prettier.nvim',
-  'folke/neodev.nvim',
-  {
-   "glepnir/lspsaga.nvim",
-    branch = "main",
-    requires = {
-      { "nvim-tree/nvim-web-devicons" },
-      { "nvim-treesitter/nvim-treesitter" },
-    },
-  },
-  'onsails/lspkind.nvim',
-  'jose-elias-alvarez/null-ls.nvim',
-  'jayp0521/mason-null-ls.nvim',
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-  {'junegunn/fzf.vim'},
+	-- NOTE: This is where your plugins related to LSP can be installed.
+	--  The configuration is done below. Search for lspconfig to find it below.
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+	"hrsh7th/cmp-nvim-lsp",
+	"MunifTanjim/prettier.nvim",
+	"folke/neodev.nvim",
+	{
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	},
+	"onsails/lspkind.nvim",
+	"jose-elias-alvarez/null-ls.nvim",
+	"jayp0521/mason-null-ls.nvim",
+	-- Useful plugin to show you pending keybinds.
+	{ "folke/which-key.nvim", opts = {} },
+	{ "junegunn/fzf.vim" },
 
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require("null-ls").setup()
-    end,
-    requires = { "nvim-lua/plenary.nvim" }
-  },
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("null-ls").setup()
+		end,
+		requires = { "nvim-lua/plenary.nvim" },
+	},
 
-  { -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'nord',
-        -- component_separators = '|',
-        -- section_separators = '',
-      },
-    },
-  },
+	{ -- Set lualine as statusline
+		"nvim-lualine/lualine.nvim",
+		-- See `:help lualine.txt`
+		opts = {
+			options = {
+				icons_enabled = false,
+				theme = "nord",
+				-- component_separators = '|',
+				-- section_separators = '',
+			},
+		},
+	},
 
-  { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
+	{ -- Autocompletion
+		"hrsh7th/nvim-cmp",
+		dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
+	},
 
-  {'bluz71/vim-nightfly-guicolors'},
-  {'lewis6991/gitsigns.nvim', dependencies = {'nvim-lua/plenary.nvim'}},
+	{ "bluz71/vim-nightfly-guicolors" },
+	{ "lewis6991/gitsigns.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
-  { -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-  },
+	{ -- Add indentation guides even on blank lines
+		"lukas-reineke/indent-blankline.nvim",
+	},
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+	-- "gc" to comment visual regions/lines
+	{ "numToStr/Comment.nvim", opts = {} },
 
-  -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+	-- Fuzzy Finder (files, lsp, etc)
+	{ "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
 
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-  -- Only load if `make` is available. Make sure you have the system
-  -- requirements installed.
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
+	-- Fuzzy Finder Algorithm which requires local dependencies to be built.
+	-- Only load if `make` is available. Make sure you have the system
+	-- requirements installed.
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		-- NOTE: If you are having trouble with this installation,
+		--       refer to the README for telescope-fzf-native for more instructions.
+		build = "make",
+		cond = function()
+			return vim.fn.executable("make") == 1
+		end,
+	},
 
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    config = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-  },
-  {'tpope/vim-fugitive'},
+	{ -- Highlight, edit, and navigate code
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
+		config = function()
+			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
+		end,
+	},
+	{ "tpope/vim-fugitive" },
+	{
+		"kdheepak/lazygit.nvim",
+		keys = {
+			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+			{ "<leader>gc", "<cmd>LazyGitConfig<cr>", desc = "LazyGit config" },
+			{
+				"<leader>gf",
+				"<cmd>LazyGitFilterCurrentFile<cr>",
+				desc = "LazyGit filter current file",
+				silent = true,
+			},
+		},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{ "junegunn/gv.vim" },
+	{ "rebelot/kanagawa.nvim" },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
-  -- Git
-  {'junegunn/gv.vim'},
-  {"rebelot/kanagawa.nvim"},
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-
-
-  -- Plugins
-  { import = 'custom.plugins' },
-},{})
-
+	-- Plugins
+	{ import = "custom.plugins" },
+}, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -213,12 +198,12 @@ vim.o.hlsearch = true
 vim.wo.number = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -231,7 +216,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -239,7 +224,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
@@ -253,104 +238,102 @@ vim.wo.wrap = false
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- [[ Configure autosave ]]
 --require("auto-save").setup {
-		-- your config goes here
-		-- or just leave it empty :)
+-- your config goes here
+-- or just leave it empty :)
 --}
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-        ['<esc>'] = 'close'
-      },
-      n = {
-        ['<esc>'] = 'close'
-      },
-    },
-  },
-}
+require("telescope").setup({
+	defaults = {
+		mappings = {
+			i = {
+				["<C-u>"] = false,
+				["<C-d>"] = false,
+				["<esc>"] = "close",
+			},
+			n = {
+				["<esc>"] = "close",
+			},
+		},
+	},
+})
 
 -- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
+pcall(require("telescope").load_extension, "fzf")
 
-require('custom.nvim-treesitter')
-
+require("custom.nvim-treesitter")
 
 -- Setup neovim lua configuration
-require('neodev').setup()
-
+require("neodev").setup()
 
 -- [[ Configure Copilot ]]
-require('custom.copilot')
+require("custom.copilot")
 -- [[ Configure cmp]]
-require('custom.cmp')
+require("custom.cmp")
 
 -- Ensure the servers above are installed
 
-require('custom.theme')
+require("custom.theme")
 -- [[ Configure Keymaps]]
-require('custom.keymaps')
+require("custom.keymaps")
 
 -- [[ Configure Nvim Tree ]]
-require('custom.nvim-tree')
+require("custom.nvim-tree")
 
 -- [[ Configure nvim-gomove ]]
-require('custom.nvim-gomove')
+require("custom.nvim-gomove")
 
 -- [[ Configure indent-blankline ]]
-require('custom.indent-blankline')
+require("custom.indent-blankline")
 
 -- [[ Configure registers ]]
-require('custom.registers')
+require("custom.registers")
 
 -- [[ Configure mini ]]
-require('custom.mini')
+require("custom.mini")
 
 -- [[ Configure noice ]]
-require('custom.noice')
+require("custom.noice")
 
 -- [[ Configure wilder ]]
-require('custom.wilder')
+require("custom.wilder")
 
 -- [[ Configure marks ]]
-require('custom.marks')
+require("custom.marks")
 
 -- [[ Configure Miscellaneous ]]
-require('custom.miscellaneous')
+require("custom.miscellaneous")
 
 -- [[ Configure any-jump ]]
-require('custom.any-jump')
+require("custom.any-jump")
 
 -- [[ Configure Nvim Tree ]]
-require('custom.lualine')
+require("custom.lualine")
 
 -- [[ Configure Dashboard ]]
-require('custom.dashboard-nvim')
+require("custom.dashboard-nvim")
 
-require('custom.search-replace')
+require("custom.search-replace")
 
-require('custom.hlchunk')
-require('custom.conform')
-require('custom.lsp.lspconfig')
-require('custom.lsp.lspsaga')
-require('custom.lsp.mason')
-require('custom.symbols-outline')
-require('custom.fzf')
-require('custom.gitsigns')
-require('custom.null-ls')
-require('custom.transparent')
+require("custom.hlchunk")
+require("custom.conform")
+require("custom.lsp.lspconfig")
+require("custom.lsp.lspsaga")
+require("custom.lsp.mason")
+require("custom.symbols-outline")
+require("custom.fzf")
+require("custom.gitsigns")
+require("custom.null-ls")
+require("custom.transparent")

@@ -50,9 +50,6 @@ return {
   } },
   { 'tpope/vim-endwise' },
 
-  -- Lazygit integration
-  { 'kdheepak/lazygit.nvim' },
-
   -- Highlight word at cursor
   { 'itchyny/vim-cursorword' },
 

@@ -63,9 +63,6 @@ vim.g.lazygit_floating_window_scaling_factor = 0.9 -- scaling factor for floatin
 vim.g.lazygit_floating_window_use_plenary = 0 -- use plenary.nvim to manage floating window if available
 vim.g.lazygit_use_neovim_remote = 0 -- fallback to 0 if neovim-remote is not installed
 
-vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { desc = 'Open [L]azy[G]it' })
-vim.keymap.set('n', '<leader>lgc', ':LazyGitConfig<CR>', { desc = 'Open [L]azy[G]it [C]onfig' })
-
 -- Map paste to register 0
 -- vim.keymap.set({ 'n', 'v' }, 'p', '"0p', { desc = '[P]aste from register 0', expr = true, silent = true })
 
