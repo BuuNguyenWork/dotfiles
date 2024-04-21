@@ -89,6 +89,17 @@ return {
     },
     cmd = "Registers",
   },
+  { 'ray-x/lsp_signature.nvim'},
+  "mhartington/formatter.nvim",
+  {
+		"ray-x/lsp_signature.nvim",
+		opts = {
+			bind = true,
+			handler_opts = {
+				border = "rounded",
+			},
+		},
+	},
 
   -- Vim movement + motion with brackets
   { 'echasnovski/mini.bracketed', version = '*' },
@@ -113,17 +124,6 @@ return {
 
   -- Marks
   { 'chentoast/marks.nvim' },
-
-  {
-    "roobert/search-replace.nvim",
-    config = function()
-      require("search-replace").setup({
-        -- optionally override defaults
-        default_replace_single_buffer_options = "gcI",
-        default_replace_multi_buffer_options = "egcI",
-      })
-    end,
-  },
 
   { "junegunn/fzf", build = "./install --bin" },
   {

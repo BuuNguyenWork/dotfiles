@@ -47,6 +47,7 @@
         "/Users/boonguyen/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
         "/Users/boonguyen/.local/share/nvim/lazy/lazygit.nvim/lua",
         "/Users/boonguyen/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }

@@ -177,6 +177,7 @@ require("lazy").setup({
 	},
 	{ "junegunn/gv.vim" },
 	{ "rebelot/kanagawa.nvim" },
+	{ "arcticicestudio/nord-vim" },
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -329,9 +330,6 @@ require("custom.search-replace")
 
 require("custom.hlchunk")
 require("custom.conform")
-require("custom.lsp.lspconfig")
-require("custom.lsp.lspsaga")
-require("custom.lsp.mason")
 require("custom.symbols-outline")
 require("custom.fzf")
 require("custom.gitsigns")
