@@ -5,7 +5,7 @@ require("copilot").setup({
 		keymap = {
 			jump_prev = "[[",
 			jump_next = "]]",
-			accept = "<CR>",
+			accept = "<Tab>",
 			refresh = "gr",
 			open = "<M-CR>",
 		},
@@ -19,9 +19,9 @@ require("copilot").setup({
 		auto_trigger = true,
 		debounce = 75,
 		keymap = {
-			accept = false,
+			accept = '<Tab>',
 			accept_word = false,
-			accept_line = false,
+			accept_line = '<Tab>',
 			next = "<C-k>",
 			prev = "<C-j>",
 			dismiss = "<C-]>",

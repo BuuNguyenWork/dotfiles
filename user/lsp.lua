@@ -1,14 +1,12 @@
 -- LSP --------------------------------------------
 -- Your Language server protocol stuff
 ---------------------------------------------------
+--
 
-require("luasnip.loaders.from_vscode").lazy_load()
-require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./vs-snippets" } })
 
 -- Plugins that we will use to setup LSP
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
-local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 -- Setup Mason
@@ -95,29 +93,6 @@ local sources = {
 	{ name = "calc" },
 }
 
-local autocomplete_mappings = { -- autocomplete mappings
-	["<Tab>"] = cmp.mapping.select_next_item({ select = true }, { "i", "s" }),
-	["<S-Tab>"] = cmp.mapping.select_prev_item({ select = true }, { "i", "s" }),
-	["<CR>"] = cmp.mapping.confirm(),
-	["<C-e>"] = cmp.mapping.abort(),
-	["<C-n>"] = cmp.mapping(function(fallback)
-		if luasnip.expand_or_locally_jumpable() then
-			luasnip.expand_or_jump(1)
-		end
-	end, { "i", "s" }),
-	["<C-p>"] = cmp.mapping(function(fallback)
-		if luasnip.locally_jumpable() then
-			luasnip.jump(-1)
-		end
-	end, { "i", "s" }),
-	["<BS>"] = cmp.mapping(function(fallback)
-		vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Del>", true, true, true), "x")
-		luasnip.jump(1)
-	end, { "s" }),
-	["<C-u>"] = cmp.mapping.scroll_docs(-4),
-	["<C-d>"] = cmp.mapping.scroll_docs(4),
-}
-
 local border_opts = {
 	border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" } },
 	winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CmpSel,Search:None,NormalFloat:Normal",
@@ -136,58 +111,8 @@ vim.diagnostic.config({
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, border_opts)
 
-local icons = require("scripts.icons")
-
-cmp.setup({
-	mapping = autocomplete_mappings,
-	snippet = {
-		expand = function(args)
-			luasnip.lsp_expand(args.body)
-		end,
-	},
-	window = {
-		documentation = border_opts,
-		completion = border_opts,
-	},
-	sources = sources,
-	formatting = {
-		fields = { "abbr", "menu", "kind" },
-		format = function(entry, item)
-			local icon = icons[item.kind] or icons[entry.source.name]
-
-			item.menu = icon
-
-			return item
-		end,
-	},
-})
 
 -- Fix C-n and C-p for cmdline
-local cmdline_mappings = cmp.mapping.preset.cmdline()
-
-cmdline_mappings["<C-P>"] = nil
-cmdline_mappings["<C-N>"] = nil
-
-cmp.setup.cmdline("/", {
-	mapping = cmdline_mappings,
-	sources = {
-		{ name = "buffer" },
-	},
-})
-
-cmp.setup.cmdline(":", {
-	mapping = cmdline_mappings,
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{
-			name = "cmdline",
-			option = {
-				ignore_cmds = { "Man", "!" },
-			},
-		},
-	}),
-})
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()

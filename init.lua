@@ -85,7 +85,7 @@ require("lazy").setup({
 	{
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		requires = {
+		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
@@ -102,7 +102,7 @@ require("lazy").setup({
 		config = function()
 			require("null-ls").setup()
 		end,
-		requires = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 
 	{ -- Set lualine as statusline
