@@ -184,6 +184,11 @@ require("lazy").setup({
 		priority = 1000,
 		opts = {},
 	},
+	{
+	  "nvim-zh/colorful-winsep.nvim",
+	  config = true,
+	  event = { "WinLeave" },
+	},
 
 	-- Plugins
 	{ import = "custom.plugins" },
@@ -256,23 +261,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require("telescope").setup({
-	defaults = {
-		mappings = {
-			i = {
-				["<C-u>"] = false,
-				["<C-d>"] = false,
-				["<esc>"] = "close",
-			},
-			n = {
-				["<esc>"] = "close",
-			},
-		},
-	},
-})
-
--- Enable telescope fzf native, if installed
-pcall(require("telescope").load_extension, "fzf")
+require('custom.telescope')
 
 require("custom.nvim-treesitter")
 

@@ -5,7 +5,6 @@ return {
 			{ "williamboman/mason.nvim" }, -- Optional
 			{ "hrsh7th/cmp-calc" },
 			{ "nvimtools/none-ls.nvim" },
-			{ "hrsh7th/cmp-cmdline" },
 			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" }, -- Required

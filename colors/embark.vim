@@ -11,8 +11,7 @@ if exists('syntax on')
   syntax reset
 endif
 
-let g:colors_name='nightfly'
-set background=dark
+let g:colors_name='norrd'
 
 if !exists("g:embark_terminal_italics")
   let g:embark_terminal_italics = 0

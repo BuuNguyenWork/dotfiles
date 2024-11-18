@@ -110,11 +110,11 @@ branch	lazy-lock.json	/^  "LuaSnip": { "branch": "master", "commit": "c4d6298347
 branch	lazy-lock.json	/^  "any-jump.vim": { "branch": "master", "commit": "770ef708ae3f13322430fcc663d7dfb864756b9b" },$/;"	s	object:any-jump.vim
 branch	lazy-lock.json	/^  "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },$/;"	s	object:cmp-buffer
 branch	lazy-lock.json	/^  "cmp-calc": { "branch": "main", "commit": "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" },$/;"	s	object:cmp-calc
-branch	lazy-lock.json	/^  "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },$/;"	s	object:cmp-cmdline
 branch	lazy-lock.json	/^  "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },$/;"	s	object:cmp-nvim-lsp
 branch	lazy-lock.json	/^  "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },$/;"	s	object:cmp-nvim-lua
 branch	lazy-lock.json	/^  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },$/;"	s	object:cmp-path
 branch	lazy-lock.json	/^  "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },$/;"	s	object:cmp_luasnip
+branch	lazy-lock.json	/^  "colorful-winsep.nvim": { "branch": "alpha", "commit": "0070484536ea55ec64a8453d41e3badace04a6/;"	s	object:colorful-winsep.nvim
 branch	lazy-lock.json	/^  "conform.nvim": { "branch": "master", "commit": "f9523f75134614fc0eff29c2377ed36603a1b0aa" },$/;"	s	object:conform.nvim
 branch	lazy-lock.json	/^  "copilot-cmp": { "branch": "master", "commit": "72fbaa03695779f8349be3ac54fa8bd77eed3ee3" },$/;"	s	object:copilot-cmp
 branch	lazy-lock.json	/^  "copilot.lua": { "branch": "master", "commit": "f7612f5af4a7d7615babf43ab1e67a2d790c13a6" },$/;"	s	object:copilot.lua
@@ -203,21 +203,21 @@ camelCaseB	utils/table_functions.lua	/^function M.camelCaseB(s)$/;"	f	unknown:M
 check_backspace	lua/custom/cmp.lua	/^local check_backspace = function()$/;"	f
 cmp-buffer	lazy-lock.json	/^  "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },$/;"	o
 cmp-calc	lazy-lock.json	/^  "cmp-calc": { "branch": "main", "commit": "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" },$/;"	o
-cmp-cmdline	lazy-lock.json	/^  "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },$/;"	o
 cmp-nvim-lsp	lazy-lock.json	/^  "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },$/;"	o
 cmp-nvim-lua	lazy-lock.json	/^  "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },$/;"	o
 cmp-path	lazy-lock.json	/^  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },$/;"	o
 cmp_luasnip	lazy-lock.json	/^  "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },$/;"	o
+colorful-winsep.nvim	lazy-lock.json	/^  "colorful-winsep.nvim": { "branch": "alpha", "commit": "0070484536ea55ec64a8453d41e3badace04a6/;"	o
 commit	lazy-lock.json	/^  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },$/;"	s	object:Comment.nvim
 commit	lazy-lock.json	/^  "LuaSnip": { "branch": "master", "commit": "c4d6298347f7707e9757351b2ee03d0c00da5c20" },$/;"	s	object:LuaSnip
 commit	lazy-lock.json	/^  "any-jump.vim": { "branch": "master", "commit": "770ef708ae3f13322430fcc663d7dfb864756b9b" },$/;"	s	object:any-jump.vim
 commit	lazy-lock.json	/^  "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },$/;"	s	object:cmp-buffer
 commit	lazy-lock.json	/^  "cmp-calc": { "branch": "main", "commit": "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" },$/;"	s	object:cmp-calc
-commit	lazy-lock.json	/^  "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },$/;"	s	object:cmp-cmdline
 commit	lazy-lock.json	/^  "cmp-nvim-lsp": { "branch": "main", "commit": "44b16d11215dce86f253ce0c30949813c0a90765" },$/;"	s	object:cmp-nvim-lsp
 commit	lazy-lock.json	/^  "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },$/;"	s	object:cmp-nvim-lua
 commit	lazy-lock.json	/^  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },$/;"	s	object:cmp-path
 commit	lazy-lock.json	/^  "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },$/;"	s	object:cmp_luasnip
+commit	lazy-lock.json	/^  "colorful-winsep.nvim": { "branch": "alpha", "commit": "0070484536ea55ec64a8453d41e3badace04a6/;"	s	object:colorful-winsep.nvim
 commit	lazy-lock.json	/^  "conform.nvim": { "branch": "master", "commit": "f9523f75134614fc0eff29c2377ed36603a1b0aa" },$/;"	s	object:conform.nvim
 commit	lazy-lock.json	/^  "copilot-cmp": { "branch": "master", "commit": "72fbaa03695779f8349be3ac54fa8bd77eed3ee3" },$/;"	s	object:copilot-cmp
 commit	lazy-lock.json	/^  "copilot.lua": { "branch": "master", "commit": "f7612f5af4a7d7615babf43ab1e67a2d790c13a6" },$/;"	s	object:copilot.lua
@@ -312,7 +312,7 @@ friendly-snippets	lazy-lock.json	/^  "friendly-snippets": { "branch": "main", "c
 fzf	lazy-lock.json	/^  "fzf": { "branch": "master", "commit": "4baadecda5c491533fd7d838bd247b88e322b67d" },$/;"	o
 fzf-lua	lazy-lock.json	/^  "fzf-lua": { "branch": "main", "commit": "fe649a0d042e68d5810c9da8045560e885a705d7" },$/;"	o
 fzf.vim	lazy-lock.json	/^  "fzf.vim": { "branch": "master", "commit": "811f34b70b60b4df2997e3ba8cd109e7d06d683b" },$/;"	o
-g:colors_name	colors/embark.vim	/^let g:colors_name='nightfly'$/;"	v
+g:colors_name	colors/embark.vim	/^let g:colors_name='norrd'$/;"	v
 g:colors_name	colors/gotham.vim	/^let g:colors_name = 'gotham'$/;"	v
 g:colors_name	colors/papercolor.vim	/^let g:colors_name = "PaperColor"$/;"	v
 g:colors_name	colors/toast.vim	/^let g:colors_name = "PaperColor"$/;"	v
